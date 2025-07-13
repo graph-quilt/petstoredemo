@@ -1,0 +1,60 @@
+# Represents a pet in the store
+type Pet {
+    id: ID!
+    name: String!
+    category: Category
+    photoUrls: [String!]!
+    tags: [Tag!]
+    status: PetStatus
+}
+
+# Represents a category for a pet
+type Category {
+    id: ID!
+    name: String
+}
+
+# Represents a tag for a pet
+type Tag {
+    id: ID!
+    name: String
+}
+
+# Enum for pet status
+enum PetStatus {
+    AVAILABLE
+    PENDING
+    SOLD
+}
+
+# Input type for creating or updating a Pet
+input PetInput {
+    name: String!
+    category: CategoryInput
+    photoUrls: [String!]!
+    tags: [TagInput]
+    status: PetStatus
+}
+
+input CategoryInput {
+    id: ID
+    name: String
+}
+
+input TagInput {
+    id: ID
+    name: String
+}
+
+# Payloads for Pet mutations
+type AddPetPayload {
+    pet: Pet
+}
+
+type UpdatePetPayload {
+    pet: Pet
+}
+
+type DeletePetPayload {
+    deletedPetId: ID
+} 

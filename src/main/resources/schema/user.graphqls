@@ -1,0 +1,43 @@
+# Represents a user
+type User {
+    id: ID!
+    username: String
+    firstName: String
+    lastName: String
+    email: String
+    phone: String
+    # User Status
+    userStatus: Int
+}
+
+# Input type for creating or updating a User
+input UserInput {
+    username: String
+    firstName: String
+    lastName: String
+    email: String
+    password: String
+    phone: String
+    userStatus: Int
+}
+
+# Payloads for User mutations
+type CreateUserPayload {
+    user: User
+}
+
+type UpdateUserPayload {
+    user: User
+}
+
+type DeleteUserPayload {
+    deletedUsername: String
+}
+
+type LoginPayload {
+    token: String
+}
+
+type LogoutPayload {
+    success: Boolean
+} 

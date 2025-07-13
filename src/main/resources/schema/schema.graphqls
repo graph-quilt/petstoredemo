@@ -1,0 +1,45 @@
+type Query {
+    # Find pet by ID. Returns null if not found.
+    pet(id: ID!): Pet
+
+    # Finds Pets by status.
+    petsByStatus(status: PetStatus!): [Pet!]!
+
+    # Find purchase order by ID. Returns null if not found.
+    order(id: ID!): Order
+
+    # Get user by user name. Returns null if not found.
+    user(username: String!): User
+
+    # Logs user into the system
+    login(username: String!, password: String!): LoginPayload
+
+    # Logs out current logged in user session
+    logout: LogoutPayload
+}
+
+type Mutation {
+    # Add a new pet to the store
+    addPet(pet: PetInput!): AddPetPayload
+
+    # Update an existing pet
+    updatePet(id: ID!, pet: PetInput!): UpdatePetPayload
+
+    # Deletes a pet
+    deletePet(id: ID!): DeletePetPayload
+
+    # Place an order for a pet
+    placeOrder(order: OrderInput!): PlaceOrderPayload
+
+    # Deletes a purchase order by ID
+    deleteOrder(id: ID!): DeleteOrderPayload
+
+    # Create user
+    createUser(user: UserInput!): CreateUserPayload
+
+    # Update user
+    updateUser(username: String!, user: UserInput!): UpdateUserPayload
+
+    # Delete user
+    deleteUser(username: String!): DeleteUserPayload
+} 

@@ -1,0 +1,34 @@
+# Represents a store order
+type Order {
+    id: ID!
+    petId: ID
+    quantity: Int
+    shipDate: String
+    status: OrderStatus
+    complete: Boolean
+}
+
+# Enum for order status
+enum OrderStatus {
+    PLACED
+    APPROVED
+    DELIVERED
+}
+
+# Input type for creating an Order
+input OrderInput {
+    petId: ID
+    quantity: Int
+    shipDate: String
+    status: OrderStatus
+    complete: Boolean
+}
+
+# Payloads for Order mutations
+type PlaceOrderPayload {
+    order: Order
+}
+
+type DeleteOrderPayload {
+    deletedOrderId: ID
+} 
